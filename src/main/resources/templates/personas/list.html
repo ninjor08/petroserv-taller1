@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/layout :: head('Lista de Personas | PetroServ')"></head>
+<body>
+<nav th:replace="fragments/layout :: nav"></nav>
+
+<main class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2 class="h4 m-0">Lista de Personas</h2>
+        <a class="btn btn-primary" th:href="@{/personas/nuevo}">Nuevo Registro</a>
+    </div>
+
+    <div th:if="${msg}" class="alert alert-success" th:text="${msg}"></div>
+
+    <div class="table-responsive">
+        <table class="table table-striped table-bordered align-middle">
+            <thead class="table-dark">
+            <tr>
+                <th>ID</th>
+                <th>Cédula</th>
+                <th>Nombres</th>
+                <th>Ciudad</th>
+                <th>Celular</th>
+                <th>Edad</th>
+                <th>Empresa Operadora</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="p : ${personas}">
+                <td th:text="${p.id}"></td>
+                <td th:text="${p.cedula}"></td>
+                <td th:text="${p.nombres}"></td>
+                <td th:text="${p.ciudad}"></td>
+                <td th:text="${p.celular}"></td>
+                <td th:text="${p.edad}"></td>
+                <td th:text="${p.empresaOperadora.razonSocial}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</main>
+
+<footer th:replace="fragments/layout :: footer"></footer>
+</body>
+</html>

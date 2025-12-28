@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/layout :: head('Inicio | PetroServ')"></head>
+<body>
+<nav th:replace="fragments/layout :: nav"></nav>
+
+<main class="container mt-4">
+    <div class="p-4 bg-light border rounded">
+        <h1 class="h3 mb-2">Sistema PetroServ</h1>
+        <p class="mb-3">
+            Este módulo corresponde a la <strong>Unidad 2</strong> (conexión a MySQL y CRUD). Incluye un ejemplo con
+            registro y listado de <strong>Personas</strong> vinculadas a una <strong>Empresa Operadora</strong>.
+        </p>
+
+        <div class="d-flex gap-2 flex-wrap">
+            <a class="btn btn-primary" th:href="@{/personas/nuevo}">Registrar Persona</a>
+            <a class="btn btn-outline-primary" th:href="@{/personas}">Ver Lista</a>
+        </div>
+    </div>
+</main>
+
+<footer th:replace="fragments/layout :: footer"></footer>
+</body>
+</html>

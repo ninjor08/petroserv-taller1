@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/layout :: head('Registro de Persona | PetroServ')"></head>
+<body>
+<nav th:replace="fragments/layout :: nav"></nav>
+
+<main class="container mt-4">
+    <h2 class="h4 mb-3">Registro de Persona</h2>
+
+    <form th:action="@{/personas}" th:object="${persona}" method="post" class="row g-3">
+        <div class="col-md-6">
+            <label class="form-label">Cédula</label>
+            <input type="text" th:field="*{cedula}" class="form-control" placeholder="10 dígitos"/>
+            <div class="text-danger small" th:if="${#fields.hasErrors('cedula')}" th:errors="*{cedula}"></div>
+        </div>
+
+        <div class="col-md-6">
+            <label class="form-label">Nombres</label>
+            <input type="text" th:field="*{nombres}" class="form-control" placeholder="Nombres completos"/>
+            <div class="text-danger small" th:if="${#fields.hasErrors('nombres')}" th:errors="*{nombres}"></div>
+        </div>
+
+        <div class="col-md-4">
+            <label class="form-label">Ciudad</label>
+            <input type="text" th:field="*{ciudad}" class="form-control" placeholder="Ej: Quito"/>
+            <div class="text-danger small" th:if="${#fields.hasErrors('ciudad')}" th:errors="*{ciudad}"></div>
+        </div>
+
+        <div class="col-md-4">
+            <label class="form-label">Celular</label>
+            <input type="text" th:field="*{celular}" class="form-control" placeholder="09xxxxxxxx"/>
+            <div class="text-danger small" th:if="${#fields.hasErrors('celular')}" th:errors="*{celular}"></div>
+        </div>
+
+        <div class="col-md-4">
+            <label class="form-label">Edad</label>
+            <input type="number" th:field="*{edad}" class="form-control" min="1" max="120"/>
+            <div class="text-danger small" th:if="${#fields.hasErrors('edad')}" th:errors="*{edad}"></div>
+        </div>
+
+        <div class="col-md-6">
+            <label class="form-label">Empresa Operadora</label>
+            <select name="empresaOperadoraId" class="form-select" required>
+                <option value="">-- Seleccione --</option>
+                <option th:each="e : ${empresas}"
+                        th:value="${e.id}"
+                        th:text="${e.razonSocial}">
+                </option>
+            </select>
+            <div class="text-muted small">Seleccione la empresa a la que pertenece la persona.</div>
+        </div>
+
+        <div class="col-12 d-flex gap-2">
+            <button type="submit" class="btn btn-primary">Guardar</button>
+            <a class="btn btn-outline-secondary" th:href="@{/personas}">Cancelar</a>
+        </div>
+    </form>
+</main>
+
+<footer th:replace="fragments/layout :: footer"></footer>
+</body>
+</html>
