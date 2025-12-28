@@ -1,40 +1,16 @@
-# PetroServ - Taller Práctico 1 (Unidad 2)
+# PetroServ – Taller Práctico 1
 
-Proyecto académico para practicar **conexión a MySQL** y operaciones **CRUD** con Spring Boot.
+Este proyecto fue desarrollado como parte del **Taller Práctico 1** de la asignatura, cuyo enfoque es la conexión a una base de datos MySQL y la implementación de operaciones CRUD utilizando Spring Boot.
 
-## Requisitos
-- Java 17
-- Maven
-- MySQL 8.x (Workbench opcional)
+La aplicación simula un sistema básico de gestión de personas vinculadas a empresas operadoras del sector petrolero.
 
-## Base de datos
-1. Crear la base:
-   ```sql
-   CREATE DATABASE petroserv_db;
-   ```
-2. Verifica tus credenciales en `src/main/resources/application.properties`.
+---
 
-> Nota: el proyecto usa `spring.jpa.hibernate.ddl-auto=update`, por lo que las tablas se crean/actualizan al iniciar.
+## Tecnologías utilizadas
 
-## Ejecutar el proyecto
-```bash
-mvn spring-boot:run
-```
-
-## Vistas (MVC - Thymeleaf)
-- Inicio: `http://localhost:8080/`
-- Lista de personas: `http://localhost:8080/personas`
-- Registro de persona: `http://localhost:8080/personas/nuevo`
-
-Incluye validación básica (regex) en el formulario de Persona:
-- Cédula: 10 dígitos
-- Celular: `09xxxxxxxx`
-
-## API (para Postman)
-- `GET http://localhost:8080/api/personas`
-- `GET http://localhost:8080/api/personas/{id}`
-- `POST http://localhost:8080/api/personas`
-- `PUT http://localhost:8080/api/personas/{id}`
-- `DELETE http://localhost:8080/api/personas/{id}`
-
-> La API se mantiene para probar el CRUD con Postman, tal como se revisó en clases.
+- Java 17.  
+- Spring Boot.  
+- Spring Data JPA.  
+- Thymeleaf.  
+- MySQL 8.  
+- Maven.  
